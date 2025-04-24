@@ -30,7 +30,7 @@ struct FAQView: View {
                     .opacity(0.7)
                 
                 Link(destination: URL(string: "mailto:support@designcode.io")!, label: {
-                    //PrimaryButton().padding(.top, 16)
+                    PrimaryButton().padding(.top, 16)
                 })
             }
             .padding(.horizontal, 20)
