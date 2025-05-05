@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showCertificates: Bool = false
+    
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top) {
@@ -23,6 +25,9 @@ struct ContentView: View {
         VStack {
             ProfileRow()
                 .padding(.horizontal, 20)
+                .onTapGesture {
+                    showCertificates.toggle()
+                }
             
             VStack {
                 NavigationLink(destination: FAQView()) {
@@ -51,6 +56,9 @@ struct ContentView: View {
                 .font(.footnote)
             
         }
+        .sheet(isPresented: $showCertificates, content: {
+            CertificatesView()
+        })
     }
     
     var divider: some View {

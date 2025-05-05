@@ -13,9 +13,10 @@ struct CertificatesView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            ForEach(certificateMV.certificates) { certificate in
-                Text("1")
-                //CertificateCard(certificateVM: $certificateMV, selection: $selection)
+            ForEach(certificateMV.certificates.indices, id: \.self) { index in
+                CertificateCard(selection: $selection)
+                    .padding(.horizontal, 8)
+                    .environmentObject(certificateMV)
             }
         }
         .background(AccountBackground())
